@@ -1,0 +1,19 @@
+{
+    "name": "medical-bot-server",
+    "version": "1.0.0",
+    "description": "Express server for medical chatbot with LangChain integration",
+    "main": "chatbotSupport.js",
+    "scripts": {
+      "start": "node chatbotSupport.js",
+      "dev": "nodemon chatbotSupport.js"
+    },
+    "dependencies": {
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "dotenv": "^16.3.1",
+      "express": "^4.18.2"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.1"
+    }
+  }
