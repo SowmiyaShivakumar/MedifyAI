@@ -119,7 +119,7 @@ app.get('/backend/documents/:userId', (req, res) => {
 app.delete('/delete/:userId/:filename', (req, res) => {
   try {
       const { userId, filename } = req.params;
-      const filePath = path.join(__dirname, 'backend', 'documents', userId, filename);
+      const filePath = path.join(__dirname, 'RecordKeeperService', 'backend', 'documents', userId, filename);
       
       if (fs.existsSync(filePath)) {
           fs.unlinkSync(filePath);
