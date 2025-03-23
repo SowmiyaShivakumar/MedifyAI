@@ -11,7 +11,7 @@ import {
   Alert
 } from 'react-native';
 
-const BACKEND_URL = 'http://192.168.65.178:3255'; // Use 10.0.2.2 for Android emulator to reach localhost
+const BACKEND_URL = 'https://medifyai-1.onrender.com'; // Use 10.0.2.2 for Android emulator to reach localhost
 
 const PersonalizedMedicine = () => {
   const [symptoms, setSymptoms] = useState('');
