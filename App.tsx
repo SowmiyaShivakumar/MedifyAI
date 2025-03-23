@@ -53,7 +53,7 @@ function BottomTabs(){
           // <><Icon name='icon' size={size} color={color} /><Icons name='icons' size={size} color={color} /></>
           // )
         },
-        tabBarActiveTintColor: '#38B2B5',
+        tabBarActiveTintColor: '#38b2b5',
         tabBarInactiveTintColor: 'gray',
         // headerShown: false
         // tabBarStyle: {styles.bar}

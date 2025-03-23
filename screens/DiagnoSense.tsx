@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Alert, ActivityIndicator, Pressable } from 'react-native';
+import { View, TextInput, Text, StyleSheet, Alert, ActivityIndicator, Pressable, SafeAreaView, StatusBar } from 'react-native';
 
 // Change this to your computer's IP address when testing on a physical device
 // or use localhost if using an emulator
@@ -44,154 +44,189 @@ const DiagnoSense = () => {
     };
 
     return (
-        <View style={styles.container}>
-             <View style={styles.topBar}>
-                            <Text style={styles.topText}>DiagnoSense</Text>
-              </View>
-            
-            <Text style={styles.subheader}>AI-Powered Disease Predictor</Text>
-            
-            <Text style={styles.label}>Describe your symptoms in detail:</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Enter symptoms (e.g., fever, headache, cough)"
-                value={symptoms}
-                onChangeText={setSymptoms}
-                multiline={true}
-                numberOfLines={4}
-            />
-            
-            <Pressable style={styles.btn} onPress={getDiagnosis}
-                     >
-                         <Text style={styles.btnText}>Get Diagnosis</Text>
-                     </Pressable>
-            
-            {loading ? (
-                <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#0066cc" />
-                    <Text style={styles.loading}>Analyzing symptoms...</Text>
+        <SafeAreaView style={styles.safeArea}>
+            {/* <StatusBar backgroundColor="" barStyle="light-content" /> */}
+            <View style={styles.container}>
+                <View style={styles.topBar}>
+                    <Text style={styles.topText}>DiagnoSense</Text>
                 </View>
-            ) : null}
-            
-            {diagnosis ? (
-                <View style={styles.resultContainer}>
-                    <Text style={styles.resultHeader}>Analysed Diseases</Text>
-                    <Text style={styles.result}>{diagnosis}</Text>
-                    <Text style={styles.disclaimer}>
-                        ⚠️ This is a screening tool only. Always consult a healthcare professional for proper diagnosis.
-                    </Text>
+                
+                <Text style={styles.subheader}>AI-Powered Disease Predictor</Text>
+                
+                <View style={styles.contentContainer}>
+                    <Text style={styles.label}>Describe your symptoms in detail:</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter symptoms (e.g., fever, headache, cough)"
+                        placeholderTextColor="#38b2b5"
+                        value={symptoms}
+                        onChangeText={setSymptoms}
+                        multiline={true}
+                        numberOfLines={4}
+                    />
+                    
+                    <Pressable 
+                        style={({pressed}) => [
+                            styles.btn,
+                            pressed && styles.btnPressed
+                        ]}
+                        onPress={getDiagnosis}
+                    >
+                        <Text style={styles.btnText}>Get Diagnosis</Text>
+                    </Pressable>
+                    
+                    {loading ? (
+                        <View style={styles.loadingContainer}>
+                            <ActivityIndicator size="large" color="#6D28D9" />
+                            <Text style={styles.loading}>Analyzing symptoms...</Text>
+                        </View>
+                    ) : null}
+                    
+                    {diagnosis ? (
+                        <View style={styles.resultContainer}>
+                            <Text style={styles.resultHeader}>Analysed Diseases</Text>
+                            <Text style={styles.result}>{diagnosis}</Text>
+                            <Text style={styles.disclaimer}>
+                                ⚠️ This is a screening tool only. Always consult a healthcare professional for proper diagnosis.
+                            </Text>
+                        </View>
+                    ) : null}
                 </View>
-            ) : null}
-        </View>
+            </View>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        // backgroundColor: '#4A1D96',
+    },
     container: { 
         flex: 1, 
-        // padding: 20, 
-        backgroundColor: '#fff' 
+        backgroundColor: '#F5F3FF',
+    },
+    contentContainer: {
+        padding: 20,
     },
     header: { 
         fontSize: 30, 
         marginBottom: 5,
         fontWeight: 'bold',
-        color: '#333'
+        color: '#38b2b5'
     },
     subheader: {
-        fontSize: 24,
-        margin: 20,
-        color: '#666',
-        fontStyle: 'italic',
-        fontWeight: '500',
-        textAlign: 'center'
+        fontSize: 20,
+        marginVertical: 15,
+        color: '#38b2b5',
+        fontWeight: '600',
+        textAlign: 'center',
+        letterSpacing: 0.5,
     },
     label: {
-        fontSize: 20,
-        margin: 15,
-        color: '#333'
+        fontSize: 18,
+        marginBottom: 10,
+        color: '#7fd3d4',
+        fontWeight: '500',
     },
     input: { 
-        borderColor: '#ccc', 
-        borderWidth: 1, 
-        borderRadius: 5,
-        padding: 12, 
-        marginBottom: 20,
-        backgroundColor: '#f9f9f9',
+        borderColor: '#38b2b5', 
+        borderWidth: 1.5, 
+        borderRadius: 12,
+        padding: 15, 
+        marginBottom: 25,
+        backgroundColor: '#0000',
         textAlignVertical: 'top',
         minHeight: 120,
         fontSize: 16,
-        margin: 20
+        color: 'black',
     },
     loadingContainer: {
-        marginTop: 20,
+        marginTop: 25,
         alignItems: 'center'
     },
     loading: {
         marginTop: 10,
         fontSize: 16,
-        color: '#0066cc'
+        color: '#6D28D9',
+        fontWeight: '500',
     },
     resultContainer: {
-        margin: 20,
-        padding: 15,
-        backgroundColor: '#f0f8ff',
-        borderRadius: 12,
-        borderWidth: 1,
-        borderColor: '#deebf7'
+        marginTop: 25,
+        padding: 20,
+        backgroundColor: '#EDE9FE',
+        borderRadius: 16,
+        borderWidth: 1.5,
+        borderColor: '#7fd3d4',
+        elevation: 3,
+        shadowColor: '#6D28D9',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
     },
     resultHeader: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 10,
-        color: '#333',
+        marginBottom: 15,
+        color: '#38b2b5',
         textAlign: 'center'
     },
     result: { 
-        fontSize: 18, 
-        color: '#333',
-        lineHeight: 24,
-        marginBottom: 15
+        fontSize: 17, 
+        color: 'black',
+        lineHeight: 26,
+        marginBottom: 15,
+        fontWeight: '400',
     },
     disclaimer: {
-        fontSize: 16,
-        color: '#c33',
+        fontSize: 15,
+        color: '#BE185D',
         fontStyle: 'italic',
-        marginTop: 10,
-        textAlign: 'center'
+        marginTop: 15,
+        textAlign: 'center',
+        fontWeight: '500',
     },
     topBar: {
-        flexDirection: 'row',
-        padding: 15,
-        backgroundColor: '#38b2b4',
-        justifyContent: 'space-between',
+        padding: 18,
+        backgroundColor: '#38b2b5',
+        justifyContent: 'center',
         alignItems: 'center',
-        elevation: 4,
+        elevation: 6,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4.5
     },
     topText: {
-        fontSize: 25,
+        fontSize: 28,
         color: 'white',
-        fontWeight: '600'
+        fontWeight: '700',
+        letterSpacing: 1,
     },
     btn: {
-        marginHorizontal: 30,
-        marginLeft: 80,
-        width: 200,
-        padding: 10,
-        borderRadius: 20,
-        backgroundColor: 'orange',
-        opacity: 0.8,
+        alignSelf: 'center',
+        width: '70%',
+        padding: 15,
+        borderRadius: 30,
+        backgroundColor: '#38b2b5',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        elevation: 4,
+        shadowColor: '#4C1D95',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 3,
     },
-    btnText:{
-        fontSize: 23,
-        fontWeight: '500',
-        color: '#FFFFFF'
+    btnPressed: {
+        backgroundColor: '#38b2b5',
+        elevation: 2,
+        transform: [{ scale: 0.98 }]
+    },
+    btnText: {
+        fontSize: 18,
+        fontWeight: '600',
+        color: '#FFFFFF',
+        letterSpacing: 0.5,
     },
 });
 

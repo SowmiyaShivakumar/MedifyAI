@@ -308,7 +308,7 @@ const RecordKeeper = () => {
                 showCancelButton={false}
                 showConfirmButton={true}
                 confirmText={alertConfig.confirmText}
-                confirmButtonColor="#38b2b5"
+                confirmButtonColor="#7C3AED"
                 onConfirmPressed={alertConfig.onConfirmPressed}
                 alertContainerStyle={styles.alertContainer}
                 titleStyle={styles.alertTitle}
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
     topBar: {
         flexDirection: 'row',
         padding: 15,
-        backgroundColor: '#38b2b4',
+        backgroundColor: '#38b2b5',
         justifyContent: 'space-between',
         alignItems: 'center',
         elevation: 4,
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
     },
     documentName: {
         fontSize: 16,
-        color: '#38b2b4',
+        color: '#38b2b5',
         flex: 1,
         marginRight: 10
     },
@@ -405,7 +405,7 @@ const styles = StyleSheet.create({
     welcomeText: {
         fontSize: 20,
         fontWeight: '600',
-        color: '#38b2b4',
+        color: '#38b2b5',
         marginBottom: 15,
     },
     alertContainer: {

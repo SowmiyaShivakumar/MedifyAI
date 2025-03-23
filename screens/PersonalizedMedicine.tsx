@@ -82,6 +82,7 @@ const PersonalizedMedicine = () => {
           value={symptoms}
           onChangeText={setSymptoms}
           placeholder="Enter here..."
+          placeholderTextColor="#38b2b5"
           multiline
           numberOfLines={4}
         />
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   headerContainer: {
-    backgroundColor: '#38b2b4',
+    backgroundColor: '#38b2b5',
     padding: 15,
     // alignItems: 'center',
   },
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
+    textAlign: 'center'
   },
   subtitle: {
     fontSize: 16,
@@ -157,23 +159,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+    borderColor: '#38b2b5'
   },
   label: {
     fontSize: 16,
     marginBottom: 8,
     fontWeight: '500',
+    color: '#38b2b5'
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#38b2b5',
     borderRadius: 4,
     padding: 12,
     fontSize: 16,
     minHeight: 120,
     textAlignVertical: 'top',
+    
   },
   button: {
-    backgroundColor:'orange',
+    backgroundColor:'#38b2b5',
     padding: 15,
     borderRadius: 15,
     alignItems: 'center',
@@ -221,7 +226,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 12,
-    color: '#38b2b4',
+    color: '#38b2b5',
   },
   diagnosisText: {
     fontSize: 16,

@@ -98,10 +98,10 @@ const styles = StyleSheet.create({
     part1:{
         position: 'relative',
         flexDirection: 'row',
-        backgroundColor: '#38B2B5',
+        backgroundColor: '#38b2b5',
         height: 175,
-        borderEndEndRadius: 35,
-        borderStartEndRadius: 35,
+        borderEndEndRadius: 45,
+        borderStartEndRadius: 45,
         width: 360,
     },
     topView:{
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     text1:{
         fontSize: 25,
         fontWeight: "600",
-        color: '#000',
+        color: '#38b2b5',
         margin: 20,
         textAlign: 'center',
     },
@@ -143,15 +143,15 @@ const styles = StyleSheet.create({
         gap: 20
     },
     topCol1:{
-        padding: 10,
-        backgroundColor: 'rgba(56, 178, 181, 0.3)', // #38b2b5 with 50% opacity
-        borderRadius: 10,
+        padding: 12,
+        backgroundColor: 'rgba(56, 178, 181, 0.2)', // #38b2b5 with 50% opacity
+        borderRadius: 20,
         alignItems: 'center'
     },
     topCol2:{
-        padding: 10,    
-        backgroundColor: 'rgba(56, 178, 181, 0.3)', // #38b2b5 with 50% opacity
-        borderRadius: 10,
+        padding: 12,    
+        backgroundColor: 'rgba(56, 178, 181, 0.2)', // #38b2b5 with 50% opacity
+        borderRadius: 20,
         alignItems: 'center'
     },
     img1:{
