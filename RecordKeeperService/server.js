@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // CORS configuration
 app.use(cors({
@@ -52,7 +52,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
   res.json({ 
     success: true, 
     message: 'File uploaded successfully', 
-    filePath: `http://192.168.65.178:3000/backend/documents/${userId}/${req.file.filename}` 
+    filePath: `https://medifyai.onrender.com/RecordKeeperService/backend/documents/${userId}/${req.file.filename}` 
   });
 });
 

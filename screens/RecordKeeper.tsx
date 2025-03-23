@@ -19,7 +19,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
-const API_BASE_URL = 'http://192.168.65.178:3000';
+const API_BASE_URL = 'https://medifyai.onrender.com';
 type RootStackParamList = {
     PDFViewer: { filePath: string };
 };
