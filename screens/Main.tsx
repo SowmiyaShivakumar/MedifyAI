@@ -63,12 +63,12 @@ const Main =  ({ navigation }) => {
             <View>
                 <Text style={styles.text1}>Our Services</Text>
                 <View style={styles.topRow}>
-                    <View style={styles.topCol1}>
+                    {/* <View style={styles.topCol1}>
                         <Pressable onPress={() => navigation.navigate('DiagnoSense')}>
                     <Image source={require('../assets/images/disease_predictor12.jpg')} style={styles.img1} width={50} height={50}/>
                     <Text style={styles.text2}>Diagno Sense</Text>
                     </Pressable>
-                    </View>
+                    </View> */}
                     <View style={styles.topCol2}>
                     <Pressable onPress={() => navigation.navigate('RecordKeeper')}>
                     <Image source={require('../assets/images/recordKeeper1.png')} style={styles.img2} width={50} height={50}/>
@@ -77,16 +77,16 @@ const Main =  ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.topRow2}>
-                    <View style={styles.topCol1}>
+                    {/* <View style={styles.topCol1}>
                     <Pressable onPress={() => navigation.navigate('PersonalizedMedicine')}>
                     <Image source={require('../assets/images/personalizedMedi.jpg')} style={styles.img1} width={50} height={50}/>
                     <Text style={styles.text2}>Personalized </Text><Text style={styles.text2}>Medicine</Text>
                     </Pressable>
-                    </View>
+                    </View> */}
                     <View style={styles.topCol2}>
                     <Pressable onPress={() => navigation.navigate('FirstAidSupport')}>
                     <Image source={require('../assets/images/firstAid1.jpg')} style={styles.img3} width={50} height={50}/>
-                    <Text style={styles.text2}>24/7 First Aid </Text><Text style={styles.text2}>Support</Text>
+                    <Text style={styles.text2}>AI - Powered </Text><Text style={styles.text2}>Assistant</Text>
                     </Pressable>
                     </View>
                 </View>

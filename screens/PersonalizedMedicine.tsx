@@ -11,14 +11,14 @@ import {
   Alert
 } from 'react-native';
 
-const BACKEND_URL = 'https://medifyai-1.onrender.com'; // Use 10.0.2.2 for Android emulator to reach localhost
-interface Diagnosis {
-  diagnosis: string;
-  warning: string;
-}
+const BACKEND_URL = 'http://192.168.65.178:3255'; // Use 10.0.2.2 for Android emulator to reach localhost
+
 const PersonalizedMedicine = () => {
   const [symptoms, setSymptoms] = useState('');
-  
+  interface Diagnosis {
+    diagnosis: string;
+    warning: string;
+  }
 
   const [diagnosis, setDiagnosis] = useState<Diagnosis | null>(null);
   const [loading, setLoading] = useState(false);
@@ -82,7 +82,6 @@ const PersonalizedMedicine = () => {
           value={symptoms}
           onChangeText={setSymptoms}
           placeholder="Enter here..."
-          placeholderTextColor="#38b2b5"
           multiline
           numberOfLines={4}
         />

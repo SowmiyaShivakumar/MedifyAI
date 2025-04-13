@@ -19,7 +19,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
-const API_BASE_URL = 'https://medifyai.onrender.com';
+const API_BASE_URL = 'https://192.168.65.178:3000';
 type RootStackParamList = {
     PDFViewer: { filePath: string };
 };
@@ -65,7 +65,7 @@ const RecordKeeper = () => {
             const user = getCurrentUser();
             console.log('Fetching documents for user:', user.uid);
             
-            const response = await fetch(`${API_BASE_URL}/backend/documents/${user.uid}`);
+            const response = await fetch(`${API_BASE_URL}/RecordKeeperService/backend/documents/${user.uid}`);
             console.log('Response status:', response.status);
             
             if (!response.ok) {
@@ -106,7 +106,7 @@ const RecordKeeper = () => {
             
             // Download file
             await RNFS.downloadFile({
-                fromUrl: `${API_BASE_URL}/backend/documents/${user.uid}/${encodeURIComponent(document.name)}`,
+                fromUrl: `${API_BASE_URL}/RecordKeeperService/backend/documents/${user.uid}/${encodeURIComponent(document.name)}`,
                 toFile: localFile
             }).promise;
 
@@ -264,14 +264,7 @@ const RecordKeeper = () => {
         </TouchableOpacity>
     );
 
-    // if (loading) {
-    //     return (
-    //         <View style={styles.centerContainer}>
-    //             <ActivityIndicator size="large" color="#38b2b4" />
-    //         </View>
-    //     );
-    // }
-
+    
     return (
         <View style={styles.container}>
             <View style={styles.topBar}>

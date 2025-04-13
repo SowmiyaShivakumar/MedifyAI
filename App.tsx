@@ -49,14 +49,9 @@ function BottomTabs(){
             icons = focused ? 'user-edit' : 'user-circle';
             return <Icons name={icons} size={size} color={color} />
           }
-          // return (
-          // <><Icon name='icon' size={size} color={color} /><Icons name='icons' size={size} color={color} /></>
-          // )
         },
         tabBarActiveTintColor: '#38b2b5',
         tabBarInactiveTintColor: 'gray',
-        // headerShown: false
-        // tabBarStyle: {styles.bar}
       })}
     >
       <Tab.Screen name='Home' component={Main} />
@@ -147,13 +142,13 @@ const App = () => {
           }}
           component={PDFViewer}
         />
-        <Stack.Screen 
+        {/* <Stack.Screen 
           name='DiagnoSense'
           options={{
             headerShown: false
           }}
           component={DiagnoSense}
-        />
+        /> */}
         <Stack.Screen 
           name='FirstAidSupport'
           options={{
@@ -161,13 +156,13 @@ const App = () => {
           }}
           component={FirstAidSupport}
         />
-        <Stack.Screen 
+        {/* <Stack.Screen 
           name='PersonalizedMedicine'
           options={{
             headerShown: false
           }}
           component={PersonalizedMedicine}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   )

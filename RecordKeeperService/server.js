@@ -1,3 +1,4 @@
+
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
@@ -5,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 // CORS configuration
 app.use(cors({
@@ -52,12 +53,12 @@ app.post('/upload', upload.single('file'), (req, res) => {
   res.json({ 
     success: true, 
     message: 'File uploaded successfully', 
-    filePath: `https://medifyai.onrender.com/RecordKeeperService/backend/documents/${userId}/${req.file.filename}` 
+    filePath: `http://192.168.65.178:3000/RecordKeeper/backend/documents/${userId}/${req.file.filename}` 
   });
 });
 
 // Get all documents for a user
-app.get('/backend/documents/:userId', (req, res) => {
+app.get('/RecordKeeper/backend/documents/:userId', (req, res) => {
   try {
       const userId = req.params.userId;
       const userDir = path.join(__dirname, 'backend', 'documents', userId);
@@ -119,7 +120,7 @@ app.get('/backend/documents/:userId', (req, res) => {
 app.delete('/delete/:userId/:filename', (req, res) => {
   try {
       const { userId, filename } = req.params;
-      const filePath = path.join(__dirname, 'RecordKeeperService', 'backend', 'documents', userId, filename);
+      const filePath = path.join(__dirname, 'backend', 'documents', userId, filename);
       
       if (fs.existsSync(filePath)) {
           fs.unlinkSync(filePath);
